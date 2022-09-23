@@ -12,6 +12,7 @@
 		5DE332BC28DCE1A30046D2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE332BA28DCE1A30046D2DB /* Main.storyboard */; };
 		5DE332BE28DCE1A40046D2DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE332BD28DCE1A40046D2DB /* Assets.xcassets */; };
 		5DE332C128DCE1A40046D2DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE332BF28DCE1A40046D2DB /* LaunchScreen.storyboard */; };
+		5DE332C928DCEE2C0046D2DB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332C828DCEE2C0046D2DB /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5DE332BD28DCE1A40046D2DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DE332C028DCE1A40046D2DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DE332C228DCE1A40046D2DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DE332C828DCEE2C0046D2DB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				5DE332B428DCE1A30046D2DB /* AppDelegate.swift */,
+				5DE332C828DCEE2C0046D2DB /* MainViewController.swift */,
 				5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */,
 				5DE332BA28DCE1A30046D2DB /* Main.storyboard */,
 				5DE332BD28DCE1A40046D2DB /* Assets.xcassets */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE332C928DCEE2C0046D2DB /* MainViewController.swift in Sources */,
 				5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */,
 				5DE332B728DCE1A30046D2DB /* SceneDelegate.swift in Sources */,
 			);
