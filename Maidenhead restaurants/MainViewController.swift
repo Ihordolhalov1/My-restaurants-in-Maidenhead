@@ -25,14 +25,18 @@ class MainViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.textLabel?.text = restaurantNames[indexPath.row]
-        cell.imageView?.image = UIImage(named: restaurantNames[indexPath.row])
-
-        return cell
+        cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.imageOfRestaurant.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.imageOfRestaurant.layer.cornerRadius = 85/20
+        cell.imageOfRestaurant.clipsToBounds = true
+        
+        return cell //заполняем таблицю лейбелами і фото
     }
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85 //висота строк
+    }
 
     /*
     // MARK: - Navigation
