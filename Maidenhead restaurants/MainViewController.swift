@@ -8,10 +8,9 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
-    let restaurantNames = [
-    "The Cricketers", "The Boathouse at Boulters Lock", "The Fat Buddha", "Gandhi's Restaurant", "The Beehive White Waltham",
-    "The Crown - Burchetts Green", "The Pinkneys Arms", "The Belgian Arms", "Hurley House Hotel"]
+    
+    let places = Place.getPlaces()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,23 +19,26 @@ class MainViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantNames.count
+        return places.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
 
-        cell.nameLabel.text = restaurantNames[indexPath.row]
-        cell.imageOfRestaurant.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.nameLabel.text = places[indexPath.row].name
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
+        cell.imageOfRestaurant.image = UIImage(named: places[indexPath.row].image)
         cell.imageOfRestaurant.layer.cornerRadius = 85/20
         cell.imageOfRestaurant.clipsToBounds = true
         
         return cell //заполняем таблицю лейбелами і фото
     }
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+  
+    /*  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85 //висота строк
-    }
+    } */
 
     /*
     // MARK: - Navigation
@@ -47,5 +49,6 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func cancelAction (_ segue: UIStoryboardSegue) {}
 
 }
