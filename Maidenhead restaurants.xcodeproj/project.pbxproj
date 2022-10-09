@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D6D071E615A7E6441521CEE /* Pods_Maidenhead_restaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C00647B983E7DEEBFF8751D /* Pods_Maidenhead_restaurants.framework */; };
+		5DD60F2F28F30DDF0032C349 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD60F2E28F30DDF0032C349 /* StorageManager.swift */; };
 		5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332B428DCE1A30046D2DB /* AppDelegate.swift */; };
 		5DE332B728DCE1A30046D2DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */; };
 		5DE332BC28DCE1A30046D2DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE332BA28DCE1A30046D2DB /* Main.storyboard */; };
@@ -15,9 +17,12 @@
 		5DE332C928DCEE2C0046D2DB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332C828DCEE2C0046D2DB /* MainViewController.swift */; };
 		5DE332CB28DF3F510046D2DB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */; };
 		5DE332CD28DF4B190046D2DB /* placeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332CC28DF4B190046D2DB /* placeModel.swift */; };
+		5DE332CF28DF69D20046D2DB /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332CE28DF69D20046D2DB /* NewPlaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C00647B983E7DEEBFF8751D /* Pods_Maidenhead_restaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maidenhead_restaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD60F2E28F30DDF0032C349 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5DE332B128DCE1A30046D2DB /* Maidenhead restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maidenhead restaurants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE332B428DCE1A30046D2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,9 @@
 		5DE332C828DCEE2C0046D2DB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5DE332CC28DF4B190046D2DB /* placeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = placeModel.swift; sourceTree = "<group>"; };
+		5DE332CE28DF69D20046D2DB /* NewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
+		6660412482FB91E371859E38 /* Pods-Maidenhead restaurants.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maidenhead restaurants.release.xcconfig"; path = "Target Support Files/Pods-Maidenhead restaurants/Pods-Maidenhead restaurants.release.xcconfig"; sourceTree = "<group>"; };
+		F1DB5ABD84FB285AA3901061 /* Pods-Maidenhead restaurants.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maidenhead restaurants.debug.xcconfig"; path = "Target Support Files/Pods-Maidenhead restaurants/Pods-Maidenhead restaurants.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6D071E615A7E6441521CEE /* Pods_Maidenhead_restaurants.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,8 @@
 			children = (
 				5DE332B328DCE1A30046D2DB /* Maidenhead restaurants */,
 				5DE332B228DCE1A30046D2DB /* Products */,
+				CE1162B2EE350892F97244FD /* Pods */,
+				F416B7C49DCBCABF0D6785CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +73,7 @@
 			children = (
 				5DE332B428DCE1A30046D2DB /* AppDelegate.swift */,
 				5DE332C828DCEE2C0046D2DB /* MainViewController.swift */,
+				5DE332CE28DF69D20046D2DB /* NewPlaceViewController.swift */,
 				5DE332CC28DF4B190046D2DB /* placeModel.swift */,
 				5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */,
 				5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */,
@@ -69,8 +81,26 @@
 				5DE332BD28DCE1A40046D2DB /* Assets.xcassets */,
 				5DE332BF28DCE1A40046D2DB /* LaunchScreen.storyboard */,
 				5DE332C228DCE1A40046D2DB /* Info.plist */,
+				5DD60F2E28F30DDF0032C349 /* StorageManager.swift */,
 			);
 			path = "Maidenhead restaurants";
+			sourceTree = "<group>";
+		};
+		CE1162B2EE350892F97244FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1DB5ABD84FB285AA3901061 /* Pods-Maidenhead restaurants.debug.xcconfig */,
+				6660412482FB91E371859E38 /* Pods-Maidenhead restaurants.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F416B7C49DCBCABF0D6785CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C00647B983E7DEEBFF8751D /* Pods_Maidenhead_restaurants.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DE332C528DCE1A40046D2DB /* Build configuration list for PBXNativeTarget "Maidenhead restaurants" */;
 			buildPhases = (
+				6D07674C0F224640A9652733 /* [CP] Check Pods Manifest.lock */,
 				5DE332AD28DCE1A30046D2DB /* Sources */,
 				5DE332AE28DCE1A30046D2DB /* Frameworks */,
 				5DE332AF28DCE1A30046D2DB /* Resources */,
+				DE8AFB0EE7780ABE5BBC046F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,13 +171,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D07674C0F224640A9652733 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Maidenhead restaurants-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE8AFB0EE7780ABE5BBC046F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Maidenhead restaurants/Pods-Maidenhead restaurants-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Maidenhead restaurants/Pods-Maidenhead restaurants-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Maidenhead restaurants/Pods-Maidenhead restaurants-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5DE332AD28DCE1A30046D2DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5DE332C928DCEE2C0046D2DB /* MainViewController.swift in Sources */,
+				5DE332CF28DF69D20046D2DB /* NewPlaceViewController.swift in Sources */,
 				5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */,
+				5DD60F2F28F30DDF0032C349 /* StorageManager.swift in Sources */,
 				5DE332CB28DF3F510046D2DB /* CustomTableViewCell.swift in Sources */,
 				5DE332CD28DF4B190046D2DB /* placeModel.swift in Sources */,
 				5DE332B728DCE1A30046D2DB /* SceneDelegate.swift in Sources */,
@@ -224,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,6 +366,7 @@
 		};
 		5DE332C628DCE1A40046D2DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1DB5ABD84FB285AA3901061 /* Pods-Maidenhead restaurants.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -319,6 +396,7 @@
 		};
 		5DE332C728DCE1A40046D2DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6660412482FB91E371859E38 /* Pods-Maidenhead restaurants.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
