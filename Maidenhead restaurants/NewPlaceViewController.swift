@@ -9,6 +9,7 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
+    var currentPlace: Place?
     
     var imageIsChanged: Bool = false
 
@@ -24,6 +25,8 @@ class NewPlaceViewController: UITableViewController {
         super.viewDidLoad()
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged) //отслеживание что поле name не пустое чтоб активировать кнопку save
+        
+        setupEditScreen()
     }
     // MARK: TableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -55,18 +58,47 @@ class NewPlaceViewController: UITableViewController {
         }
     }
 
-    func saveNewPlace() { //функція зберігання введених нових даних в модель
-        
+    func savePlace() { //функція зберігання введених нових даних в модель
         var image: UIImage?
         if imageIsChanged {
             image = placeImage.image
         } else {
-            image = UIImage(imageLiteralResourceName: "imagePlaceholder")
+            image = UIImage(imageLiteralResourceName: "imagePlaceholder")  // =#imageLiteral()
         }
         let imageData = image?.pngData()
         let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData)
-        StorageManager.saveObject(newPlace)
-        
+        if currentPlace != nil {
+            try! realm.write {
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
+            }
+        } else {
+            StorageManager.saveObject(newPlace)
+        }
+       
+    }
+    
+    private func setupEditScreen () {
+        if currentPlace != nil {
+            setupNavigationBar ()
+            imageIsChanged = true
+            
+            
+            guard let data  = currentPlace?.imageData, let image = UIImage(data: data) else { return }
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFill
+            placeName.text = currentPlace?.name
+            placeLocation.text = currentPlace?.location
+            placeType.text = currentPlace?.type
+        }
+    }
+    
+    private func setupNavigationBar () {
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+        saveButton.isEnabled = true
     }
     
     @IBAction func cancelAction(_ sender: Any) {

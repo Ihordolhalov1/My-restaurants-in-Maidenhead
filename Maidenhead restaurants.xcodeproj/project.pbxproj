@@ -77,11 +77,11 @@
 				5DE332CC28DF4B190046D2DB /* placeModel.swift */,
 				5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */,
 				5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */,
+				5DD60F2E28F30DDF0032C349 /* StorageManager.swift */,
 				5DE332BA28DCE1A30046D2DB /* Main.storyboard */,
 				5DE332BD28DCE1A40046D2DB /* Assets.xcassets */,
 				5DE332BF28DCE1A40046D2DB /* LaunchScreen.storyboard */,
 				5DE332C228DCE1A40046D2DB /* Info.plist */,
-				5DD60F2E28F30DDF0032C349 /* StorageManager.swift */,
 			);
 			path = "Maidenhead restaurants";
 			sourceTree = "<group>";
