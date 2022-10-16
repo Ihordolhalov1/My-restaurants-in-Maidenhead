@@ -46,7 +46,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
          if isFiltering {
              return filteredPlaces.count
          }
-        return places.isEmpty ? 0 : places.count
+        return places.count
     }
  
     
@@ -72,6 +72,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     // MARK: - Tableview Delegate
+    //снятие выделения ячейки когда не надо
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // отработка свайпа
      func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let place = places[indexPath.row]

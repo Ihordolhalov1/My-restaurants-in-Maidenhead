@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,6 +32,18 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="gii-bm-aTo">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="250"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xv-2R-cEq">
+                                                    <rect key="frame" x="320" y="189" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="KAJ-gP-euj"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Xvb-3A-2Pt"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="map"/>
+                                                    <connections>
+                                                        <segue destination="in9-pO-fX0" kind="show" identifier="showMap" id="hV2-rc-Vla"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGray5Color"/>
                                             <constraints>
@@ -38,6 +51,8 @@
                                                 <constraint firstAttribute="trailing" secondItem="gii-bm-aTo" secondAttribute="trailing" id="OPi-u8-ndx"/>
                                                 <constraint firstAttribute="bottom" secondItem="gii-bm-aTo" secondAttribute="bottom" id="XUh-nm-MdI"/>
                                                 <constraint firstItem="gii-bm-aTo" firstAttribute="leading" secondItem="P7Y-gd-w8T" secondAttribute="leading" id="gUB-w9-0P3"/>
+                                                <constraint firstItem="0Xv-2R-cEq" firstAttribute="trailing" secondItem="P7Y-gd-w8T" secondAttribute="trailingMargin" id="iPD-oz-QKj"/>
+                                                <constraint firstItem="0Xv-2R-cEq" firstAttribute="bottom" secondItem="P7Y-gd-w8T" secondAttribute="bottomMargin" id="q2X-UR-bLy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -146,6 +161,23 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="pDf-vT-xXr">
+                                        <rect key="frame" x="0.0" y="525" width="390" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pDf-vT-xXr" id="14W-fD-X93">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="252" placeholderIntrinsicHeight="44" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="IlW-8U-rwA" customClass="RatingControl" customModule="Maidenhead_restaurants" customModuleProvider="target">
+                                                    <rect key="frame" x="69" y="48" width="252" height="44"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IlW-8U-rwA" firstAttribute="centerX" secondItem="14W-fD-X93" secondAttribute="centerX" id="B1T-En-FR4"/>
+                                                <constraint firstItem="IlW-8U-rwA" firstAttribute="centerY" secondItem="14W-fD-X93" secondAttribute="centerY" id="tZt-fF-CGI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -171,6 +203,7 @@
                         <outlet property="placeLocation" destination="BRs-qA-6yp" id="cGh-rh-io7"/>
                         <outlet property="placeName" destination="lpP-wj-Stp" id="OYo-TA-etb"/>
                         <outlet property="placeType" destination="L2F-Ql-ZxO" id="9Kd-48-mcd"/>
+                        <outlet property="ratingControl" destination="IlW-8U-rwA" id="tX9-dJ-QGE"/>
                         <outlet property="saveButton" destination="MEZ-Ur-Ngt" id="cR6-39-Y0t"/>
                     </connections>
                 </tableViewController>
@@ -178,6 +211,37 @@
                 <exit id="232-T7-fOG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1040" y="-207"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="ULv-n8-Dsf">
+            <objects>
+                <viewController id="in9-pO-fX0" customClass="MapViewController" customModule="Maidenhead_restaurants" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f0t-zX-BPf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpK-mp-uUy">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3Fl-Uu-Tle"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FpK-mp-uUy" firstAttribute="top" secondItem="f0t-zX-BPf" secondAttribute="top" id="BJ0-mD-fkx"/>
+                            <constraint firstItem="FpK-mp-uUy" firstAttribute="trailing" secondItem="3Fl-Uu-Tle" secondAttribute="trailing" id="iJe-bt-kCX"/>
+                            <constraint firstAttribute="bottom" secondItem="FpK-mp-uUy" secondAttribute="bottom" id="ic0-kb-GmY"/>
+                            <constraint firstItem="FpK-mp-uUy" firstAttribute="leading" secondItem="3Fl-Uu-Tle" secondAttribute="leading" id="n5J-Gc-AUw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2JT-dX-i4b"/>
+                    <connections>
+                        <outlet property="mapView" destination="FpK-mp-uUy" id="DVP-ti-oJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjD-vL-zSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1770.7692307692307" y="-207.58293838862559"/>
         </scene>
         <!--List of Maidenhead's restaurants -->
         <scene sceneID="6IS-Lg-jdy">
@@ -188,7 +252,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5dN-9C-2lG">
-                                <rect key="frame" x="0.0" y="181" width="390" height="663"/>
+                                <rect key="frame" x="-2" y="180" width="390" height="663"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -254,7 +318,7 @@
                                 </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZCU-as-u9j">
-                                <rect key="frame" x="0.0" y="91" width="390" height="41"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bxi-Gn-S5b"/>
                                 </constraints>
@@ -336,12 +400,18 @@
             <point key="canvasLocation" x="1055" y="-1014"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="IlW-8U-rwA">
+            <size key="intrinsicContentSize" width="252" height="44"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="FCo-KT-nNQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="map" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

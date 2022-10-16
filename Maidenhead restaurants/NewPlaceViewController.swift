@@ -9,7 +9,7 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController {
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     
     var imageIsChanged: Bool = false
 
@@ -19,6 +19,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     
     override func viewDidLoad() {
@@ -57,6 +58,12 @@ class NewPlaceViewController: UITableViewController {
             view.endEditing(true) //скрыть клаву если тапнуть на любую ячейку кроме первой
         }
     }
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "showMap" { return }
+        let mapVC = segue.destination as! MapViewController
+        mapVC.place = currentPlace
+    }
 
     func savePlace() { //функція зберігання введених нових даних в модель
         var image: UIImage?
@@ -66,13 +73,14 @@ class NewPlaceViewController: UITableViewController {
             image = UIImage(imageLiteralResourceName: "imagePlaceholder")  // =#imageLiteral()
         }
         let imageData = image?.pngData()
-        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData)
+        let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData, rating: Double(ratingControl.rating))
         if currentPlace != nil {
             try! realm.write {
                 currentPlace?.name = newPlace.name
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(newPlace)
@@ -80,7 +88,7 @@ class NewPlaceViewController: UITableViewController {
        
     }
     
-    private func setupEditScreen () {
+    private func setupEditScreen () {  //редактирование заведения
         if currentPlace != nil {
             setupNavigationBar ()
             imageIsChanged = true
@@ -92,6 +100,7 @@ class NewPlaceViewController: UITableViewController {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
+            ratingControl.rating = Int(currentPlace.rating)
         }
     }
     
