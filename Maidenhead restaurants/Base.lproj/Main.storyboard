@@ -224,14 +224,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yog-YK-KH0">
+                                <rect key="frame" x="262" y="730" width="88" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kcT-4h-LYG"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="q2s-45-zJQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="small"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="centerViewInUserLocation" destination="in9-pO-fX0" eventType="touchUpInside" id="1Ey-Jx-8pt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Fl-Uu-Tle"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FpK-mp-uUy" firstAttribute="top" secondItem="f0t-zX-BPf" secondAttribute="top" id="BJ0-mD-fkx"/>
+                            <constraint firstItem="yog-YK-KH0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Fl-Uu-Tle" secondAttribute="leading" symbolic="YES" id="CfY-FN-1cP"/>
+                            <constraint firstItem="3Fl-Uu-Tle" firstAttribute="bottom" secondItem="yog-YK-KH0" secondAttribute="bottom" constant="40" id="dWB-c6-P4Y"/>
                             <constraint firstItem="FpK-mp-uUy" firstAttribute="trailing" secondItem="3Fl-Uu-Tle" secondAttribute="trailing" id="iJe-bt-kCX"/>
                             <constraint firstAttribute="bottom" secondItem="FpK-mp-uUy" secondAttribute="bottom" id="ic0-kb-GmY"/>
                             <constraint firstItem="FpK-mp-uUy" firstAttribute="leading" secondItem="3Fl-Uu-Tle" secondAttribute="leading" id="n5J-Gc-AUw"/>
+                            <constraint firstItem="3Fl-Uu-Tle" firstAttribute="trailing" secondItem="yog-YK-KH0" secondAttribute="trailing" constant="40" id="u5O-f8-UcF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2JT-dX-i4b"/>
@@ -252,7 +269,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="5dN-9C-2lG">
-                                <rect key="frame" x="-2" y="180" width="390" height="663"/>
+                                <rect key="frame" x="-3" y="180" width="390" height="662"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -411,6 +428,7 @@
     <resources>
         <image name="AZ" width="25" height="24"/>
         <image name="Photo" width="194.66667175292969" height="195.66667175292969"/>
+        <image name="location" width="64" height="70"/>
         <image name="map" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

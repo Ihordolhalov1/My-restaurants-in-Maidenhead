@@ -60,9 +60,15 @@ class NewPlaceViewController: UITableViewController {
     }
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier != "showMap" { return }
+        
         let mapVC = segue.destination as! MapViewController
-        mapVC.place = currentPlace
+        
+        mapVC.place.name = placeName.text!
+        mapVC.place.location = placeLocation.text
+        mapVC.place.type = placeType.text
+        mapVC.place.imageData = placeImage.image?.pngData()
     }
 
     func savePlace() { //функція зберігання введених нових даних в модель
