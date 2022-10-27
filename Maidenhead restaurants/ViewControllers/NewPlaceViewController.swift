@@ -7,7 +7,11 @@
 
 import UIKit
 
-class NewPlaceViewController: UITableViewController {
+class NewPlaceViewController: UITableViewController, MapViewControllerDelegate {
+    func getAddress(_address: String?) {
+        placeLocation.text = _address
+    }
+    
     
     var currentPlace: Place!
     
@@ -61,14 +65,23 @@ class NewPlaceViewController: UITableViewController {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier != "showMap" { return }
+        guard
+            let identifier = segue.identifier,
+            let mapVC = segue.destination as? MapViewController
+        else { return }
         
-        let mapVC = segue.destination as! MapViewController
+        mapVC.incomeSegueIdentifier = identifier
+        mapVC.mapViewControlerDelegate = self // назначаем класс newpalceviewcontroller ответственнм за выполнение методов протокола
+  
+        if identifier == "showPlace" {
+            mapVC.place.name = placeName.text!
+            mapVC.place.location = placeLocation.text
+            mapVC.place.type = placeType.text
+            mapVC.place.imageData = placeImage.image?.pngData()
+        }
+       
         
-        mapVC.place.name = placeName.text!
-        mapVC.place.location = placeLocation.text
-        mapVC.place.type = placeType.text
-        mapVC.place.imageData = placeImage.image?.pngData()
+        
     }
 
     func savePlace() { //функція зберігання введених нових даних в модель

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D6D071E615A7E6441521CEE /* Pods_Maidenhead_restaurants.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C00647B983E7DEEBFF8751D /* Pods_Maidenhead_restaurants.framework */; };
 		5D1ACD3D28FC612000C533A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ACD3C28FC612000C533A7 /* MapViewController.swift */; };
+		5D30417629083227003C38CC /* mapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D30417529083227003C38CC /* mapManager.swift */; };
 		5D49570728FB188F003B1E4C /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49570628FB188F003B1E4C /* RatingControl.swift */; };
 		5DD60F2F28F30DDF0032C349 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD60F2E28F30DDF0032C349 /* StorageManager.swift */; };
 		5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332B428DCE1A30046D2DB /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		1C00647B983E7DEEBFF8751D /* Pods_Maidenhead_restaurants.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maidenhead_restaurants.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1ACD3C28FC612000C533A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5D30417529083227003C38CC /* mapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapManager.swift; sourceTree = "<group>"; };
 		5D49570628FB188F003B1E4C /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		5DD60F2E28F30DDF0032C349 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5DE332B128DCE1A30046D2DB /* Maidenhead restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maidenhead restaurants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +56,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D30417729093F57003C38CC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DE332C828DCEE2C0046D2DB /* MainViewController.swift */,
+				5DE332CE28DF69D20046D2DB /* NewPlaceViewController.swift */,
+				5D1ACD3C28FC612000C533A7 /* MapViewController.swift */,
+				5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5D30417829093FBB003C38CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5D3041792909400C003C38CC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5DE332A828DCE1A30046D2DB = {
 			isa = PBXGroup;
 			children = (
@@ -75,16 +102,16 @@
 		5DE332B328DCE1A30046D2DB /* Maidenhead restaurants */ = {
 			isa = PBXGroup;
 			children = (
-				5DE332B428DCE1A30046D2DB /* AppDelegate.swift */,
-				5DE332C828DCEE2C0046D2DB /* MainViewController.swift */,
-				5DE332CE28DF69D20046D2DB /* NewPlaceViewController.swift */,
-				5DE332CC28DF4B190046D2DB /* placeModel.swift */,
-				5DE332CA28DF3F510046D2DB /* CustomTableViewCell.swift */,
-				5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */,
+				5D3041792909400C003C38CC /* Helpers */,
+				5D30417529083227003C38CC /* mapManager.swift */,
 				5DD60F2E28F30DDF0032C349 /* StorageManager.swift */,
 				5D49570628FB188F003B1E4C /* RatingControl.swift */,
+				5D30417829093FBB003C38CC /* Models */,
+				5DE332CC28DF4B190046D2DB /* placeModel.swift */,
+				5D30417729093F57003C38CC /* ViewControllers */,
+				5DE332B428DCE1A30046D2DB /* AppDelegate.swift */,
+				5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */,
 				5DE332BA28DCE1A30046D2DB /* Main.storyboard */,
-				5D1ACD3C28FC612000C533A7 /* MapViewController.swift */,
 				5DE332BD28DCE1A40046D2DB /* Assets.xcassets */,
 				5DE332BF28DCE1A40046D2DB /* LaunchScreen.storyboard */,
 				5DE332C228DCE1A40046D2DB /* Info.plist */,
@@ -230,6 +257,7 @@
 				5DD60F2F28F30DDF0032C349 /* StorageManager.swift in Sources */,
 				5D1ACD3D28FC612000C533A7 /* MapViewController.swift in Sources */,
 				5D49570728FB188F003B1E4C /* RatingControl.swift in Sources */,
+				5D30417629083227003C38CC /* mapManager.swift in Sources */,
 				5DE332CB28DF3F510046D2DB /* CustomTableViewCell.swift in Sources */,
 				5DE332CD28DF4B190046D2DB /* placeModel.swift in Sources */,
 				5DE332B728DCE1A30046D2DB /* SceneDelegate.swift in Sources */,
