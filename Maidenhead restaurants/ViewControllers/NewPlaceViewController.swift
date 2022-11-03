@@ -85,13 +85,11 @@ class NewPlaceViewController: UITableViewController, MapViewControllerDelegate {
     }
 
     func savePlace() { //функція зберігання введених нових даних в модель
-        var image: UIImage?
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = UIImage(imageLiteralResourceName: "imagePlaceholder")  // =#imageLiteral()
-        }
-        let imageData = image?.pngData()
+    
+        guard let image = imageIsChanged ? placeImage.image : #imageLiteral(resourceName: "imagePlaceholder") else { return }
+        
+        let imageData = image.pngData()
+        
         let newPlace = Place(name: placeName.text!, location: placeLocation.text, type: placeType.text, imageData: imageData, rating: Double(ratingControl.rating))
         if currentPlace != nil {
             try! realm.write {
@@ -102,7 +100,11 @@ class NewPlaceViewController: UITableViewController, MapViewControllerDelegate {
                 currentPlace?.rating = newPlace.rating
             }
         } else {
+            
+            CloudManager.saveDataToCloud(place: newPlace, image: image)
+            
             StorageManager.saveObject(newPlace)
+            
         }
        
     }
@@ -119,7 +121,7 @@ class NewPlaceViewController: UITableViewController, MapViewControllerDelegate {
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
-            ratingControl.rating = Int(currentPlace.rating)
+            ratingControl.rating = currentPlace.rating
         }
     }
     

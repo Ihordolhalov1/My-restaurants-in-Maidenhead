@@ -11,7 +11,7 @@ import UIKit
     
     //кількість кнопок і рейтінг
     private var ratingButtons = [UIButton]()
-    var rating = 0 {
+    var rating = 0.0 {
         didSet {updateButtonSelectionState()}
     }
     
@@ -37,7 +37,7 @@ import UIKit
     // button action
     @objc func ratingButtonTapped(button: UIButton) {
         guard let index = ratingButtons.firstIndex(of: button) else {return}
-        let selectedRating = index + 1
+        let selectedRating = Double(index + 1)
         if selectedRating == rating { rating = 0 }
         else { rating = selectedRating }
     }
@@ -81,7 +81,7 @@ import UIKit
     
     private func updateButtonSelectionState() {
         for (index, button) in ratingButtons.enumerated() {
-            button.isSelected = index < rating
+            button.isSelected = Double(index) < rating
         }
     }
 }

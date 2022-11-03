@@ -11,6 +11,7 @@
 		5D1ACD3D28FC612000C533A7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1ACD3C28FC612000C533A7 /* MapViewController.swift */; };
 		5D30417629083227003C38CC /* mapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D30417529083227003C38CC /* mapManager.swift */; };
 		5D49570728FB188F003B1E4C /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D49570628FB188F003B1E4C /* RatingControl.swift */; };
+		5D9D49AF290FF9410067F063 /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D49AE290FF9410067F063 /* CloudManager.swift */; };
 		5DD60F2F28F30DDF0032C349 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD60F2E28F30DDF0032C349 /* StorageManager.swift */; };
 		5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332B428DCE1A30046D2DB /* AppDelegate.swift */; };
 		5DE332B728DCE1A30046D2DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE332B628DCE1A30046D2DB /* SceneDelegate.swift */; };
@@ -28,6 +29,8 @@
 		5D1ACD3C28FC612000C533A7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5D30417529083227003C38CC /* mapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapManager.swift; sourceTree = "<group>"; };
 		5D49570628FB188F003B1E4C /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		5D82EF48290D31E30016D6B1 /* Maidenhead restaurantsDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Maidenhead restaurantsDebug.entitlements"; sourceTree = "<group>"; };
+		5D9D49AE290FF9410067F063 /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloudManager.swift; path = Helpers/CloudManager.swift; sourceTree = "<group>"; };
 		5DD60F2E28F30DDF0032C349 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5DE332B128DCE1A30046D2DB /* Maidenhead restaurants.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Maidenhead restaurants.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE332B428DCE1A30046D2DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,8 +105,10 @@
 		5DE332B328DCE1A30046D2DB /* Maidenhead restaurants */ = {
 			isa = PBXGroup;
 			children = (
+				5D82EF48290D31E30016D6B1 /* Maidenhead restaurantsDebug.entitlements */,
 				5D3041792909400C003C38CC /* Helpers */,
 				5D30417529083227003C38CC /* mapManager.swift */,
+				5D9D49AE290FF9410067F063 /* CloudManager.swift */,
 				5DD60F2E28F30DDF0032C349 /* StorageManager.swift */,
 				5D49570628FB188F003B1E4C /* RatingControl.swift */,
 				5D30417829093FBB003C38CC /* Models */,
@@ -251,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9D49AF290FF9410067F063 /* CloudManager.swift in Sources */,
 				5DE332C928DCEE2C0046D2DB /* MainViewController.swift in Sources */,
 				5DE332CF28DF69D20046D2DB /* NewPlaceViewController.swift in Sources */,
 				5DE332B528DCE1A30046D2DB /* AppDelegate.swift in Sources */,
@@ -406,11 +412,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Maidenhead restaurants/Maidenhead restaurantsDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WXTVGCYAQM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Maidenhead restaurants/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For direction to the place";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -422,7 +431,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "personal.Maidenhead-restaurants";
+				PRODUCT_BUNDLE_IDENTIFIER = personal.MaidenheadRestaurants;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -441,6 +450,8 @@
 				DEVELOPMENT_TEAM = WXTVGCYAQM;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Maidenhead restaurants/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "For direction to the place";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
