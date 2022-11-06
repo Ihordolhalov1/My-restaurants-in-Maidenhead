@@ -38,6 +38,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController //интегрируем строку поиска в навигейшн бар
         definesPresentationContext = true
+        
+        // вигрузка даних з iCloud
+        CloudManager.fetchDataFromCloud(places: places) { place in
+            StorageManager.saveObject(place)
+            self.tableView.reloadData()
+            CloudManager.getImageFromCloud(place: place) { imageData in
+                try! realm.write {
+                    place.imageData = imageData
+                }
+                self.tableView.reloadData()
+
+            }
+
+        }
     }
     
     // MARK: - Table view data source
@@ -60,14 +74,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
              place = places[indexPath.row]
          }
         //let place = places[indexPath.row]
-        cell.nameLabel.text = place.name
-        cell.locationLabel.text = place.location
-        cell.typeLabel.text = place.type
-        cell.imageOfRestaurant.image = UIImage(data: place.imageData!)
-     
-        cell.imageOfRestaurant.layer.cornerRadius = 85/20
-        cell.imageOfRestaurant.clipsToBounds = true
-        
+         cell.configureCell(place: place)
         return cell //заполняем таблицю лейбелами і фото
     }
     
@@ -83,8 +90,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let place = places[indexPath.row]
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (_, _, _) in
             //Code I want to do here
-            StorageManager.deleteObject(place)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.showAlert(title: "Delete the record?", message: "This record will be deleted from all your devices") {
+                CloudManager.deleteRecord(recordID: place.recordID)
+                StorageManager.deleteObject(place)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
 
@@ -153,6 +163,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         tableView.reloadData()
+    }
+    
+    private func showAlert(title: String, message: String, closure: @escaping ()-> ()) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            closure()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
 }
 

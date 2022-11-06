@@ -26,4 +26,15 @@ class CustomTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func configureCell(place: Place) {
+        nameLabel.text = place.name
+        locationLabel.text = place.location
+        typeLabel.text = place.type
+        imageOfRestaurant.image = UIImage(data: place.imageData!)
+     
+        imageOfRestaurant.layer.cornerRadius = 85/20
+        imageOfRestaurant.clipsToBounds = true
+         
+       
+    }
 }

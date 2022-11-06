@@ -98,10 +98,18 @@ class NewPlaceViewController: UITableViewController, MapViewControllerDelegate {
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
                 currentPlace?.rating = newPlace.rating
+                
+                CloudManager.updateCloudDate(place: currentPlace, with: image)
             }
         } else {
             
-            CloudManager.saveDataToCloud(place: newPlace, image: image)
+            CloudManager.saveDataToCloud(place: newPlace, image: image) { (recordID) in
+                DispatchQueue.main.async {
+                    try! realm.write {
+                        newPlace.recordID = recordID
+                    }
+                }
+            }
             
             StorageManager.saveObject(newPlace)
             
